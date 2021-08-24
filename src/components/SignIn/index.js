@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
-import {auth, firestore, signInWithGoogle} from '../../Firebase/firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import React from 'react';
+import {signInWithGoogle} from '../../Firebase/firebase';
 
 function SignIn() {  
     //this needs to be in an async function in your Group rooms

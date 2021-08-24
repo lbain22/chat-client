@@ -1,7 +1,7 @@
 
-import React, { useRef, useState } from 'react';
+import React from 'react';
 
-import {auth, firestore} from '../../Firebase/firebase';
+import {auth} from '../../Firebase/firebase';
 
 function ChatMessage(props) {
     const { text, uid, photoURL } = props.message;

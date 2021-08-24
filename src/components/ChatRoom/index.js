@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import ChatMessage from '../ChatMessages';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import {auth, firestore} from '../../Firebase/firebase';
+// import firebase from 'firebase';
+import firebase, {auth, firestore} from '../../Firebase/firebase';
 import Groups from '../Groups';
+
 function ChatRoom() {
     const dummy = useRef();
     const messagesRef = firestore.collection('messages');
@@ -15,10 +17,10 @@ function ChatRoom() {
       e.preventDefault();
   
       const { uid, photoURL } = auth.currentUser;
-  
+      const timestamp = firebase.firestore.FieldValue.serverTimestamp();
       await messagesRef.add({
         text: formValue,
-        createdAt: firestore.FieldValue.serverTimestamp(),
+        createdAt: timestamp,
         uid,
         photoURL
       })
